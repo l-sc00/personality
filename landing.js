@@ -1,4 +1,4 @@
-1function startTest() {
+function startTest() {
   window.location.hash = "#/test";
 }
 
