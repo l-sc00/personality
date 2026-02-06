@@ -57,6 +57,11 @@ body {
   border: 1px solid rgba(20, 26, 43, 0.08);
 }
 
+.page.light .title {
+  color: #141a2b;
+  text-shadow: 0 0 12px rgba(20, 26, 43, 0.2);
+}
+
 .page.light .badge {
   color: rgba(20, 26, 43, 0.8);
   box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.6);
@@ -149,6 +154,45 @@ body {
   align-items: center;
   text-align: center;
   gap: 36px;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  gap: 16px;
+  padding: 8px 0 0;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  min-width: max-content;
+  animation: marqueeLeft 28s linear infinite;
+}
+
+.marquee-item {
+  min-width: clamp(160px, 22vw, 220px);
+  height: clamp(120px, 18vw, 160px);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+.page.light .marquee-item {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+  border: 1px solid rgba(20, 26, 43, 0.12);
+  color: rgba(20, 26, 43, 0.7);
 }
 
 .theme-toggle {
@@ -361,6 +405,15 @@ body {
   }
 }
 
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @media (min-width: 720px) {
   .hero {
     padding: 52px 64px 44px;
@@ -392,5 +445,13 @@ body {
 
   .scroll-hint {
     letter-spacing: 0.2em;
+  }
+
+  .marquee {
+    gap: 12px;
+  }
+
+  .marquee-track {
+    gap: 12px;
   }
 }
