@@ -169,6 +169,7 @@ body {
   flex-direction: column;
   gap: 14px;
   align-items: center;
+  justify-content: center;
 }
 
 .btn {
